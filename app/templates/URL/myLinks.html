@@ -1,0 +1,38 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+
+<div class="my-5">
+    <div class="container position-relative my-5">
+        <h3>My Links</h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>URL Short</th>
+                    <th>URL</th>
+                    <th>Count</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for index, link in allLinks %}
+                    <tr>
+                        <th>{{ index }}</th>
+                        <td>http://192.168.100.218:9800/out/{{ link.url_short }}</td>
+                        <td>{{ link.url }}</td>
+                        <td>{{ link.count }}</td>
+                        <td><a href="{{ url_for( 'urlBp.delete', ID=link.id ) }}" class="btn btn-outline-danger">delete</a></td>
+                    </tr>
+                {% endfor %}
+                
+            </tbody>
+
+
+        </table>
+        <a href="{{ url_for( 'urlBp.home' ) }}" class="btn btn-outline-primary">Back to Home</a>
+    </div>
+</div>
+
+
+{% endblock content %}

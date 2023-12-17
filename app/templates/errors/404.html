@@ -1,0 +1,35 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+<div class="my-4">
+    <div class="my-5 containar text-center">
+        {% if backLastPage != None %}
+            <a href="{{ backLastPage }}" class="containar text-center link" style="font-style: normal;">
+                <i class="bi bi-arrow-left-short ">
+                    Back to last page
+                </i>
+            </a>
+        {% endif %}
+        <h1 style="font-size: 100px;">404</h1>
+        <h3>Page not found</h3>
+    </div>
+</div>
+<div class="container">
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed fw-bold fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Why this page?
+        </button>
+      </h2>
+    </div>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.
+        </div>
+        <div class="accordion-body" style="font-style: italic;"><strong>Error message: {{meassgeError}}</strong></div>
+
+    </div>
+</div>
+</div>
+
+{% endblock content %}

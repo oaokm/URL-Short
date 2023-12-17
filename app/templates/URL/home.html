@@ -1,0 +1,59 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+
+<header class="masthead full-screen" style="background: url({{ url_for( 'static', filename='bg.png' ) }}) no-repeat center center;">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-5">Super URL Short!</h1>
+                    <!-- Signup form-->
+
+                    <form method="post" enctype="multipart/form-data">
+                        {{ URLform.hidden_tag() }}
+                        <!-- Email address input-->
+                        <div class="row">
+                            <div class="col">
+                                <!-- <input class="form-control form-control-lg"  type="url" placeholder="http://example.com"/> -->
+   
+                                {% if URLform.URL.errors%}
+                                    {{ URLform.URL(class='form-control form-control-lg is-invalid')}}
+                                    <div class="invalid-feedback">
+                                        {% for error in URLform.URL.errors %}
+                                            <span>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ URLform.URL(class='form-control form-control-lg', placeholder='https://example.com') }}
+                                {% endif %}
+                            </div>
+                            <div class="col-auto">
+                                <!-- <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Geting</button> -->
+                                {{ URLform.submit(class='btn btn-primary btn-lg') }}
+                            </div>
+                        </div>
+                        <!-- Submit success message-->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                <p>To activate this form, sign up at</p>
+                                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+{% endblock content %}

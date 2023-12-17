@@ -1,0 +1,26 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+
+<div class="my-5">
+    <div class="container position-relative my-5">
+        <h3>Cheakout info</h3>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th class="col">ID</th>
+                <td>{{ urlshort }}</td>
+            </tr>
+            <tr>
+                <th class="col">URL Short</th>
+                <td>http://192.168.100.218:9800/out/{{ urlshort }}</td>
+            </tr>
+            <tr>
+                <th class="col">URL</th>
+                <td>{{ link }}</td>
+            </tr>
+
+        </table>
+        <a href="{{ url_for( 'urlBp.home' ) }}" class="btn btn-outline-primary">Back to Home</a>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+<div class="my-4">
+    <div class="my-5 containar text-center">
+        <h1 style="font-size: 100px;">400</h1>
+        <h3>Bad Request</h3>
+    </div>
+</div>
+<div class="container">
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed fw-bold fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Why this page?
+        </button>
+      </h2>
+    </div>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            The request could not be understood by the server due to malformed syntax.
+        </div>
+        <div class="accordion-body" style="font-style: italic;"><strong>Error message: {{meassgeError}}</strong></div>
+
+    </div>
+</div>
+</div>
+
+{% endblock content %}
